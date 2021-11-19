@@ -1,5 +1,24 @@
+<<<<<<< HEAD
+=======
+---
+# tasks file for tomcat
 
+- name: Install tomcat
+  yum:
+    name: tomcat
+    state: installed
+>>>>>>> 8cd88145d3525bddac7d770418c6f377c6401699
 
+- name: Install additional packages
+  yum:
+    name: "{{ item }}"
+    state: installed
+  loop:
+    - tomcat-webapps
+    - tomcat-admin-webapps 
+    - tomcat-docs-webapp
+
+<<<<<<< HEAD
 ---
 # tasks file for tomcat
 
@@ -26,6 +45,18 @@
      name: tomcat
      state: started
 
+=======
+- name: copy tomcat-users.xml
+  copy:
+     src: tomcat-users.xml
+     dest: /usr/share/tomcat/conf/tomcat-users.xml
+
+- name: Start tomcat
+  service:
+     name: tomcat
+     state: started
+
+>>>>>>> 8cd88145d3525bddac7d770418c6f377c6401699
 - name: Enable tomcat
   service:
      name: tomcat
