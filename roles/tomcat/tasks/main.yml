@@ -8,9 +8,9 @@
 
 - name: Install additional packages
   yum:
-  state: installed
-    loop: "{{ item }}"
-  with_items:
+    name: "{{ item }}"
+    state: installed
+  loop:
     - tomcat-webapps
     - tomcat-admin-webapps 
     - tomcat-docs-webapp
