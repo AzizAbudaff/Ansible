@@ -2,8 +2,9 @@
 ---
 - hosts: webservers
   become: true
-  tasks: 
-    - name: copyWebapp 
-        copy:
-          src: /var/lib/jenkins/workspace/TestMavenProject/webapp/target
-          dest: /usr/share/tomcat/webapps/
+  tasks:
+ 
+  - name: copyWebapp 
+    copy:
+      src: /var/lib/jenkins/workspace/TestMavenProject/webapp/target
+      dest: /usr/share/tomcat/webapps/
