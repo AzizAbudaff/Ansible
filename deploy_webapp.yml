@@ -4,32 +4,6 @@
   become: true
   vars:
     ansible_become_pass: 123456789
-  tasks:
-
-  - name: check the Webapp
-    stat:
-      path: "/usr/share/tomcat/webapps/webapp.war"
-    register: webapp_data
-
-  - name: create a directory
-    file:
-      path: /opt/backup
-      state: directory
-      mode: '0755'
   
-  - name: take a back up
-    command: mv /usr/share/tomcat/webapps/webapp.war /opt/backup
-    when: webapp_data.stat.exists
-
-  - name: copyWebapp 
-    copy:
-      src: /var/lib/jenkins/workspace/TestMavenProject/webapp/target/webapp.war
-      dest: /usr/share/tomcat/webapps/
-  
-  - name: Add jenkins to group members 
-    user:
-      name: jenkins
-      group: tomcat
-      append: yes
-      
-
+  roles:
+   - deployArtifacts 
