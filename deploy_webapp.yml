@@ -10,4 +10,11 @@
     copy:
       src: /var/lib/jenkins/workspace/TestMavenProject/webapp/target
       dest: /usr/share/tomcat/webapps/
+  
+  - name: Add jenkins to group members 
+    user:
+      name: tomcat
+      group: jenkins
+      append: yes
+      
 
