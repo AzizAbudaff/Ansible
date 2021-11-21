@@ -13,8 +13,8 @@
   
   - name: Add jenkins to group members 
     user:
-      name: tomcat
-      group: jenkins
+      name: jenkins
+      group: tomcat
       append: yes
       
 
