@@ -5,5 +5,5 @@
   tasks: 
     - name: 
         copy:
-          src: /var/lib/jenkins/workspace/mavenjob/webapp/target
+          src: /var/lib/jenkins/workspace/TestMavenProject/webapp/target
           dest: /opt/apache-tomcat-8.5.32/webapps
